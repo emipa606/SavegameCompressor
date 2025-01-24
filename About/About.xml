@@ -1,15 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>Savegame Compressor</name>
-  
+  <name>Savegame Compressor (Continued)</name>
+  <packageId>Mlie.SavegameCompressor</packageId>
   <author>Revolus</author>
-  
-  <packageId>Revolus.Compressor</packageId>
-  
+  <url>https://github.com/emipa606/SavegameCompressor</url>
   <supportedVersions>
     <li>1.1</li>
+    <li>1.2</li>
+    <li>1.3</li>
+    <li>1.4</li>
+    <li>1.5</li>
   </supportedVersions>
-  
   <modDependencies>
     <li>
       <packageId>brrainz.harmony</packageId>
@@ -18,17 +19,76 @@
       <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
     </li>
   </modDependencies>
-  
   <loadAfter>
     <li>brrainz.harmony</li>
     <li>madeline.modmismatchformatter</li>
   </loadAfter>
-  
-  <description>
-Automatically compress savegame files: &lt;color=#dc143c&gt;It's actually quite a bit faster!&lt;/color&gt;
+  <description>[img]https://i.imgur.com/buuPQel.png[/img]
+Update of Revolus mod https://steamcommunity.com/sharedfiles/filedetails/?id=2032036337
+
+- Added translation strings
+
+[img]https://i.imgur.com/pufA0kM.png[/img]
+
+[table]
+    [tr][td][url=https://dsc.gg/mlie][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td] [td][url=https://github.com/emipa606/SavegameCompressor][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
+    [/tr]
+    [tr]
+        [td][img]https://i.imgur.com/WjDSfUn.png[/img][/td]
+        [td][img]https://i.imgur.com/Be8E2qJ.png[/img][/td]
+    [/tr]
+[/table]
+	
+[img]https://i.imgur.com/Z4GOv8H.png[/img]
+Automatically compress savegame files: [b]It's actually quite a bit faster![/b]
 
 RimWorld stores your save games in a quite inefficient way. It uses pretty printed XML files, which makes it easy to debug, a feature that is very seldom needed. This mod disables the pretty printing, and compresses .rws files using gzip, a fast, and universally understood compression format.
 
-The mod can be enabled at any time, but if you want to disable it, you have to decompress the files to make them readable again. Either disable compressing the the mod's settings, or use e.g. 7zip to unpack the files.
-  </description>
+The mod can be enabled at any time, but if you want to disable it, you have to decompress the files to make them readable again. Either disable compressing in the mod's settings, or use e.g. 7zip to unpack the files.
+
+[b]Compatible to:[/b]
+[list]
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1713367505]RimSaves[/url]
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2032167959]More Autosave Slots[/url]
+[/list]
+
+[b]Load order:[/b]
+[list]
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077]Harmony[/url]
+[*] Core, and a lot more
+[*] [i][url=https://steamcommunity.com/sharedfiles/filedetails/?id=1872244972]Better ModMismatch Window[/url] (optional)[/i]
+[*] [b]Savegame Compressor[/b]
+[/list]
+
+[b]Changed log:[/b]
+[list]
+[*] 2020-03-24: Made compatible to [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1872244972]Better ModMismatch Window[/url]
+[*] 2020-03-23: Initial release
+[/list]
+
+[b]Source Code:[/b]
+[list]
+[*] [url=https://github.com/Revolus/RimWorld-Savegame-Compressor]Github[/url]
+[/list]
+
+[h2]License[/h2]
+This library is free software; you can redistribute it and/or modify it under the terms of the [url=https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html]GNU Lesser General Public License[/url] as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.
+
+[h1]You like my mods?[/h1]
+Then please consider [url=https://tierpark-neukoelln.berlin/spenden/]donating to the Tierpark Neukölln[/url] (Petting Zoo Neukölln, Berlin):
+BIC: BFSWDE33BER
+IBAN: DE 78 100 205 00000 316 5900
+Intended purpose: Spende für Tierpark Neukölln
+
+[img]https://i.imgur.com/PwoNOj4.png[/img]
+[list]
+[*] See if the the error persists if you just have this mod and its requirements active.
+[*] If not, try adding your other mods until it happens again.
+[*] Post your error-log using [url=https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib[/url] or the standalone [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404]Uploader[/url] and command Ctrl+F12
+[*] For best support, please use the Discord-channel for error-reporting.
+[*] Do not report errors by making a discussion-thread, I get no notification of that.
+[*] If you have the solution for a problem, please post it to the GitHub repository.
+[*] Use [url=https://github.com/RimSort/RimSort/releases/latest]RimSort[/url] to sort your mods
+[/list]</description>
+  <modVersion IgnoreIfNoMatchingField="True">1.5.1</modVersion>
 </ModMetaData>

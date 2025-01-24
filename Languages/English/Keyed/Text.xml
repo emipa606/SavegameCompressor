@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SGC.Compressionlevel>Compression level: </SGC.Compressionlevel>
+  <SGC.Uncompressed> (uncompressed)</SGC.Uncompressed>
+  <SGC.BestCompression> (best compression)</SGC.BestCompression>
+  <SGC.FastestCompression> (fastest compression)</SGC.FastestCompression>
+  <SGC.PrettyPrint>Pretty print XML (use indentation): </SGC.PrettyPrint>
+  <SGC.ModVersion>Installed mod-version: {0}</SGC.ModVersion>
+</LanguageData>

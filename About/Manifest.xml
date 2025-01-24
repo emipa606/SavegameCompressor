@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Manifest>
-  <identifier>Revolus.Compressor</identifier>
-  <version>2020.4.5</version>
+  <identifier>SavegameCompressor</identifier>
+  <version>1.5.1</version>
+  <dependencies />
+  <incompatibleWith />
+  <loadBefore />
+  <loadAfter />
+  <manifestUri>https://raw.githubusercontent.com/emipa606/SavegameCompressor/master/About/Manifest.xml</manifestUri>
+  <downloadUri>https://github.com/emipa606/SavegameCompressor/releases</downloadUri>
 </Manifest>
