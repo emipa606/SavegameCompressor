@@ -2,7 +2,7 @@
 <ModSyncNinjaData>
   <ID>2737220c-4d72-44bf-8717-bb7c426af691</ID>
   <ModName>Savegame Compressor (Continued)</ModName>
-  <Version>1.5.1</Version>
+  <Version>1.5.2</Version>
   <SaveBreaking>False</SaveBreaking>
   <Host name="Github">
     <Owner>emipa606</Owner>
@@ -12,8 +12,4 @@
     <Branch>master</Branch>
   </Host>
 </ModSyncNinjaData>
-
-
-
-
 

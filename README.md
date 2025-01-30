@@ -1,4 +1,4 @@
-# [Savegame Compressor (Continued)]()
+# [Savegame Compressor (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=3413768309)
 
 ![Image](https://i.imgur.com/buuPQel.png)
 
@@ -20,7 +20,7 @@ The mod can be enabled at any time, but if you want to disable it, you have to d
 
 
 -  [RimSaves](https://steamcommunity.com/sharedfiles/filedetails/?id=1713367505)
--  [More Autosave Slots](https://steamcommunity.com/sharedfiles/filedetails/?id=2032167959)
+-  [More Autosave Slots](https://steamcommunity.com/sharedfiles/filedetails/?id=3410766209)
 
 
 
@@ -39,13 +39,6 @@ The mod can be enabled at any time, but if you want to disable it, you have to d
 
 -  2020-03-24: Made compatible to [Better ModMismatch Window](https://steamcommunity.com/sharedfiles/filedetails/?id=1872244972)
 -  2020-03-23: Initial release
-
-
-
-**Source Code:**
-
-
--  [Github](https://github.com/Revolus/RimWorld-Savegame-Compressor)
 
 
 
@@ -72,4 +65,6 @@ Intended purpose: Spende für Tierpark Neukölln
 -  If you have the solution for a problem, please post it to the GitHub repository.
 -  Use [RimSort](https://github.com/RimSort/RimSort/releases/latest) to sort your mods
 
+ 
 
+[![Image](https://img.shields.io/github/v/release/emipa606/SavegameCompressor?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/3413768309) | tags:  savegame optimization

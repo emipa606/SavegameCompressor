@@ -6,10 +6,9 @@ namespace Revolus.Compressor.HarmonyPatches;
 [HarmonyPatch(typeof(SafeSaver), "DoSave")]
 public static class SafeSaver_DoSave
 {
-    internal static bool Prefix()
+    internal static void Prefix(string documentElementName)
     {
-        CompressorMod.CurrentlySavingSavegame = true;
-        return true; // proceed to original implementation
+        CompressorMod.CurrentlySavingSavegame = documentElementName == "savegame";
     }
 
     internal static void Postfix()
