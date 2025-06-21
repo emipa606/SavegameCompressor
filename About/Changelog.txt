@@ -1,5 +1,8 @@
 # Changelog for SavegameCompressor
 
+1.6.0 - Mod updated for 1.6 and passed autotests
+
+
 1.5.2 - Should now only compress save-games and not mod-lists, ideologies etc.
 
 

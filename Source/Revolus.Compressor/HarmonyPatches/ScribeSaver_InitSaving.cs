@@ -20,7 +20,7 @@ public static class ScribeSaver_InitSaving
 
         var instance = __instance;
 
-        if (!GotField("writer", out var writerField) || !GotField("saveStream", out var saveStreamField))
+        if (!gotField("writer", out var writerField) || !gotField("saveStream", out var saveStreamField))
         {
             Log.Error("Verse.ScribeSaver is incompatible. Not Compressing.");
             return true;
@@ -32,18 +32,18 @@ public static class ScribeSaver_InitSaving
             Scribe.ForceStop();
         }
 
-        if (GotField("curPath", out var curPathField) && curPathField.GetValue(instance) != null)
+        if (gotField("curPath", out var curPathField) && curPathField.GetValue(instance) != null)
         {
             Log.Error("Current path is not null in InitSaving");
 
             curPathField.SetValue(instance, null);
 
-            if (GotField("savedNodes", out var savedNodesField))
+            if (gotField("savedNodes", out var savedNodesField))
             {
                 ((HashSet<string>)savedNodesField.GetValue(instance)).Clear();
             }
 
-            if (GotField("nextListElementTemporaryId", out var nextListElementTemporaryIdField))
+            if (gotField("nextListElementTemporaryId", out var nextListElementTemporaryIdField))
             {
                 nextListElementTemporaryIdField.SetValue(instance, 0);
             }
@@ -59,7 +59,7 @@ public static class ScribeSaver_InitSaving
             var settings = CompressorMod.Settings;
 
             var xmlWriterSettings = new XmlWriterSettings();
-            if (settings.pretty)
+            if (settings.Pretty)
             {
                 xmlWriterSettings.Indent = true;
                 xmlWriterSettings.IndentChars = "\t";
@@ -80,7 +80,7 @@ public static class ScribeSaver_InitSaving
 
         return false; // don't call original implementation
 
-        bool GotField(string name, out FieldInfo result)
+        static bool gotField(string name, out FieldInfo result)
         {
             var field = typeof(ScribeSaver).GetField(name, BindingFlags.Instance | BindingFlags.NonPublic);
             result = field;

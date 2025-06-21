@@ -8,7 +8,7 @@ public static class DataExposeUtility_AddLineBreaksToLongString
 {
     internal static bool Prefix(ref string __result, string str)
     {
-        if (CompressorMod.Settings.pretty)
+        if (CompressorMod.Settings.Pretty)
         {
             return true;
         }

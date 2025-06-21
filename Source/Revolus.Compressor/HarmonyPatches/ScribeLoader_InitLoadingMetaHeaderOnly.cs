@@ -32,7 +32,10 @@ public static class ScribeLoader_InitLoadingMetaHeaderOnly
                 xmlDocument.Load(reader);
 
                 var xmlElement = xmlDocument.CreateElement("root");
-                xmlElement.AppendChild(xmlDocument.DocumentElement);
+                if (xmlDocument.DocumentElement != null)
+                {
+                    xmlElement.AppendChild(xmlDocument.DocumentElement);
+                }
 
                 instance.curXmlParent = xmlElement;
 

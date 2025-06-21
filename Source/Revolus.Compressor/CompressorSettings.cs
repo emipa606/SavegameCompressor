@@ -6,23 +6,23 @@ namespace Revolus.Compressor;
 
 internal class CompressorSettings : ModSettings
 {
-    internal static readonly bool prettyDefault = true;
+    private const bool prettyDefault = true;
 
-    internal static readonly int levelDefault = 0;
-    internal int level = levelDefault;
-    internal bool pretty = prettyDefault;
+    private const int levelDefault = 0;
+    internal int Level = levelDefault;
+    internal bool Pretty = prettyDefault;
 
     public override void ExposeData()
     {
-        Scribe_Values.Look(ref pretty, "pretty", prettyDefault);
-        Scribe_Values.Look(ref level, "level", levelDefault);
+        Scribe_Values.Look(ref Pretty, "pretty", prettyDefault);
+        Scribe_Values.Look(ref Level, "level");
         base.ExposeData();
     }
 
     internal bool ShowAndChangeSettings(Listing_Standard listing)
     {
-        int levelNew, levelOld = Math.Max(-1, Math.Min(level, +1));
-        bool prettyNew, prettyOld = pretty;
+        int levelNew, levelOld = Math.Max(-1, Math.Min(Level, +1));
+        bool prettyNew, prettyOld = Pretty;
 
         {
             var wholeRect = listing.GetRect(Text.LineHeight);
@@ -65,7 +65,7 @@ internal class CompressorSettings : ModSettings
         var changed = false;
         if (prettyNew != prettyOld)
         {
-            pretty = prettyNew;
+            Pretty = prettyNew;
             changed = true;
         }
 
@@ -74,7 +74,7 @@ internal class CompressorSettings : ModSettings
             return changed;
         }
 
-        level = levelNew;
+        Level = levelNew;
 
         return true;
     }

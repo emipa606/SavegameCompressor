@@ -22,13 +22,13 @@ internal class Utils
         var isCompressed = headerBuffer[0] == 0x1f && headerBuffer[1] == 0x8b && headerBuffer[2] == 0x08;
         if (!isCompressed)
         {
-            return DoAction(maybeCompressedStream);
+            return doAction(maybeCompressedStream);
         }
 
         using var uncompressedStream = new GZipStream(maybeCompressedStream, CompressionMode.Decompress);
-        return DoAction(uncompressedStream);
+        return doAction(uncompressedStream);
 
-        T DoAction(Stream uncompressedBytesStream)
+        T doAction(Stream uncompressedBytesStream)
         {
             using var textReader = new StreamReader(uncompressedBytesStream);
             using var xmlTextReader = new XmlTextReader(textReader);

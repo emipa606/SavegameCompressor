@@ -19,7 +19,7 @@ public static class DataExposeUtility_LookByteArray
             return false; // nothing to do
         }
 
-        if (CompressorMod.Settings.level < 0)
+        if (CompressorMod.Settings.Level < 0)
         {
             return true; // use default
         }

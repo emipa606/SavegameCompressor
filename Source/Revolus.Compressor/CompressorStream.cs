@@ -13,7 +13,7 @@ internal class CompressorStream : Stream
         var settings = CompressorMod.Settings;
 
         var fileStream = new FileStream(filePath, FileMode.CreateNew);
-        if (settings.level < 0)
+        if (settings.Level < 0)
         {
             stream = fileStream;
         }
@@ -22,7 +22,7 @@ internal class CompressorStream : Stream
             outerStream = fileStream;
             stream = new GZipStream(
                 fileStream,
-                settings.level > 0 ? CompressionLevel.Optimal : CompressionLevel.Fastest
+                settings.Level > 0 ? CompressionLevel.Optimal : CompressionLevel.Fastest
             );
         }
     }

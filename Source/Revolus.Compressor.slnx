@@ -1,0 +1,6 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Release" />
+  </Configurations>
+  <Project Path="Revolus.Compressor/Revolus.Compressor.csproj" />
+</Solution>

@@ -29,39 +29,39 @@ internal class BetterModMismatch_Window
         Log.Message("Mod 'Better ModMismatch Window' was found -> patching");
 
         if (!Utils.GetType(BetterModMismatchWindow, "Madeline.ModMismatchFormatter.ModContentPackExtension",
-                out var ModContentPackExtension))
+                out var modContentPackExtension))
         {
             Log.Error("!Madeline.ModMismatchFormatter.ModContentPackExtension");
         }
-        else if (!Utils.GetMethod(ModContentPackExtension, "ReadModsFromSaveHeader", true,
-                     out var ReadModsFromSaveHeader))
+        else if (!Utils.GetMethod(modContentPackExtension, "ReadModsFromSaveHeader", true,
+                     out var readModsFromSaveHeader))
         {
             Log.Error("!Madeline.ModMismatchFormatter.MetaHeaderUtility ReadModsFromSaveHeader");
         }
         else if (!Utils.GetType(BetterModMismatchWindow, "Madeline.ModMismatchFormatter.MetaHeaderUtility",
-                     out var MetaHeaderUtility))
+                     out var metaHeaderUtility))
         {
             Log.Error("!Madeline.ModMismatchFormatter.MetaHeaderUtility");
         }
-        else if (!Utils.GetMethod(MetaHeaderUtility, "UpdateModVersionMetaHeader", true,
-                     out var UpdateModVersionMetaHeader))
+        else if (!Utils.GetMethod(metaHeaderUtility, "UpdateModVersionMetaHeader", true,
+                     out var updateModVersionMetaHeader))
         {
             Log.Error("!Madeline.ModMismatchFormatter.MetaHeaderUtility UpdateModVersionMetaHeader");
         }
         else
         {
             harmony.Patch(
-                ReadModsFromSaveHeader,
+                readModsFromSaveHeader,
                 new HarmonyMethod(typeof(BetterModMismatch_Window), nameof(ReadModsFromSaveHeader__Prefix))
             );
             harmony.Patch(
-                UpdateModVersionMetaHeader,
+                updateModVersionMetaHeader,
                 new HarmonyMethod(typeof(BetterModMismatch_Window), nameof(UpdateModVersionMetaHeader__Prefix))
             );
         }
     }
 
-    private static List<(string name, string version)> GetModsList()
+    private static List<(string name, string version)> getModsList()
     {
         var result = cachedModList;
         if (result != null)
@@ -75,18 +75,18 @@ internal class BetterModMismatch_Window
         try
         {
             Utils.GetType(BetterModMismatchWindow, "Madeline.ModMismatchFormatter.ModContentPackExtension",
-                out var ModContentPackExtension);
-            Utils.GetMethod(ModContentPackExtension, "GetMetaData", true, out var GetMetaData);
+                out var modContentPackExtension);
+            Utils.GetMethod(modContentPackExtension, "GetMetaData", true, out var GetMetaData);
 
             Utils.GetType(BetterModMismatchWindow, "Madeline.ModMismatchFormatter.MetaHeaderUtility",
-                out var MetaHeaderUtility);
-            Utils.GetMethod(MetaHeaderUtility, "GetVersionFromManifestFile", true,
-                out var GetVersionFromManifestFile);
+                out var metaHeaderUtility);
+            Utils.GetMethod(metaHeaderUtility, "GetVersionFromManifestFile", true,
+                out var getVersionFromManifestFile);
 
             foreach (var modContentPack in LoadedModManager.RunningMods)
             {
                 var metaData = (ModMetaData)GetMetaData.Invoke(null, [modContentPack]);
-                var version = (string)GetVersionFromManifestFile.Invoke(null, [modContentPack]);
+                var version = (string)getVersionFromManifestFile.Invoke(null, [modContentPack]);
                 result.Add((metaData.Name, version ?? "Unknown"));
             }
         }
@@ -105,7 +105,7 @@ internal class BetterModMismatch_Window
             return;
         }
 
-        var mods = GetModsList();
+        var mods = getModsList();
         if (mods.Count <= 0 || !Scribe.EnterNode("modMetaDatas"))
         {
             return;
@@ -138,7 +138,7 @@ internal class BetterModMismatch_Window
         }
     }
 
-    private static Dictionary<string, string> ReadModMetaDatas(string filePath)
+    private static Dictionary<string, string> readModMetaData(string filePath)
     {
         return Utils.WithUncompressedXmlTextReader(filePath, xml =>
         {
@@ -187,7 +187,7 @@ internal class BetterModMismatch_Window
         Dictionary<string, string> modsInSelection = null;
         if (readModVersion)
         {
-            modsInSelection = ReadModMetaDatas((string)LastAccessedSaveFilePathInLoadSelection.GetValue(null));
+            modsInSelection = readModMetaData((string)LastAccessedSaveFilePathInLoadSelection.GetValue(null));
         }
 
         var saveMods = new List<object>();
