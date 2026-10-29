@@ -8,7 +8,7 @@ using Verse;
 
 namespace Revolus.Compressor;
 
-internal class BetterModMismatch_Window
+internal static class BetterModMismatch_Window
 {
     private static List<(string name, string version)> cachedModList;
 
@@ -87,7 +87,7 @@ internal class BetterModMismatch_Window
             {
                 var metaData = (ModMetaData)GetMetaData.Invoke(null, [modContentPack]);
                 var version = (string)getVersionFromManifestFile.Invoke(null, [modContentPack]);
-                result.Add((metaData.Name, version ?? "Unknown"));
+                result.Add((metaData?.Name, version ?? "Unknown"));
             }
         }
         catch (Exception ex)

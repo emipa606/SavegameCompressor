@@ -6,7 +6,7 @@ using System.Xml;
 
 namespace Revolus.Compressor;
 
-internal class Utils
+internal static class Utils
 {
     internal static T WithUncompressedXmlTextReader<T>(string filePath, Func<XmlTextReader, T> action)
     {

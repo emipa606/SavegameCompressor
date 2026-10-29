@@ -21,46 +21,42 @@ internal class CompressorSettings : ModSettings
 
     internal bool ShowAndChangeSettings(Listing_Standard listing)
     {
-        int levelNew, levelOld = Math.Max(-1, Math.Min(Level, +1));
-        bool prettyNew, prettyOld = Pretty;
+        var levelOld = Math.Max(-1, Math.Min(Level, +1));
+        var prettyOld = Pretty;
 
-        {
-            var wholeRect = listing.GetRect(Text.LineHeight);
-            var labelRect = wholeRect.LeftHalf().Rounded();
-            var dataRect = wholeRect.RightHalf().Rounded();
-            var dataSelectRect = dataRect.LeftHalf().Rounded();
-            var dataDescRect = dataRect.RightHalf().Rounded();
+        var wholeRect = listing.GetRect(Text.LineHeight);
+        var labelRect = wholeRect.LeftHalf().Rounded();
+        var dataRect = wholeRect.RightHalf().Rounded();
+        var dataSelectRect = dataRect.LeftHalf().Rounded();
+        var dataDescRect = dataRect.RightHalf().Rounded();
 
-            Text.Anchor = TextAnchor.MiddleRight;
-            Widgets.Label(labelRect, "SGC.Compressionlevel".Translate());
+        Text.Anchor = TextAnchor.MiddleRight;
+        Widgets.Label(labelRect, "SGC.Compressionlevel".Translate());
 
-            Text.Anchor = TextAnchor.MiddleCenter;
-            levelNew = Mathf.RoundToInt(Widgets.HorizontalSlider(dataSelectRect, levelOld, -1, +1));
+        Text.Anchor = TextAnchor.MiddleCenter;
+        var levelNew = Mathf.RoundToInt(Widgets.HorizontalSlider(dataSelectRect, levelOld, -1, +1));
 
-            Text.Anchor = TextAnchor.MiddleLeft;
-            Widgets.Label(
-                dataDescRect,
-                levelNew < 0 ? "SGC.Uncompressed".Translate() :
-                levelNew > 0 ? "SGC.BestCompression".Translate() : "SGC.FastestCompression".Translate()
-            );
+        Text.Anchor = TextAnchor.MiddleLeft;
+        Widgets.Label(
+            dataDescRect,
+            levelNew < 0 ? "SGC.Uncompressed".Translate() :
+            levelNew > 0 ? "SGC.BestCompression".Translate() : "SGC.FastestCompression".Translate()
+        );
 
-            listing.Gap(listing.verticalSpacing + Text.LineHeight);
-        }
+        listing.Gap(listing.verticalSpacing + Text.LineHeight);
 
-        {
-            var wholeRect = listing.GetRect(Text.LineHeight);
-            var labelRect = wholeRect.LeftHalf().Rounded();
-            var valueRect = wholeRect.RightHalf().Rounded();
+        wholeRect = listing.GetRect(Text.LineHeight);
+        labelRect = wholeRect.LeftHalf().Rounded();
+        var valueRect = wholeRect.RightHalf().Rounded();
 
-            Text.Anchor = TextAnchor.MiddleRight;
-            Widgets.Label(labelRect, "SGC.PrettyPrint".Translate());
+        Text.Anchor = TextAnchor.MiddleRight;
+        Widgets.Label(labelRect, "SGC.PrettyPrint".Translate());
 
-            Text.Anchor = TextAnchor.MiddleLeft;
-            prettyNew = prettyOld;
-            Widgets.CheckboxLabeled(valueRect, "", ref prettyNew, placeCheckboxNearText: true);
+        Text.Anchor = TextAnchor.MiddleLeft;
+        var prettyNew = prettyOld;
+        Widgets.CheckboxLabeled(valueRect, "", ref prettyNew, placeCheckboxNearText: true);
 
-            listing.Gap(listing.verticalSpacing + Text.LineHeight);
-        }
+        listing.Gap(listing.verticalSpacing + Text.LineHeight);
 
         var changed = false;
         if (prettyNew != prettyOld)

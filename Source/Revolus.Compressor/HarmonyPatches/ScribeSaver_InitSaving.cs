@@ -40,7 +40,7 @@ public static class ScribeSaver_InitSaving
 
             if (gotField("savedNodes", out var savedNodesField))
             {
-                ((HashSet<string>)savedNodesField.GetValue(instance)).Clear();
+                ((HashSet<string>)savedNodesField.GetValue(instance))?.Clear();
             }
 
             if (gotField("nextListElementTemporaryId", out var nextListElementTemporaryIdField))
